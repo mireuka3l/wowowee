@@ -18,10 +18,14 @@
         <div id="page-greeting" class="page active">
             <h1>Welcome, My Love <span class="heart">❤️</span></h1>
             <p class="greeting-text">
-                I made something special for you...<br>
+                I made something for you...<br>
                 But first, you need to unlock it!
             </p>
-            <p class="password-label">The password is our monthsary</p>
+            <button onclick="toggleHint()">Hint</button>
+            <p id="hintText" style="display: none; font-weight: bold;">
+               My Birthday
+            </p>
+
             <div class="password-input">
                 <input type="password" maxlength="1" id="digit1" pattern="[0-9]" inputmode="numeric">
                 <input type="password" maxlength="1" id="digit2" pattern="[0-9]" inputmode="numeric">

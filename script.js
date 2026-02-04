@@ -23,6 +23,17 @@ digits.forEach((digit, index) => {
     });
 });
 
+function toggleHint() {
+    const hint = document.getElementById("hintText");
+
+    if (hint.style.display === "none") {
+        hint.style.display = "block";
+    } else {
+        hint.style.display = "none";
+    }
+}
+
+
 function checkPassword() {
     const enteredPassword = digits.map(d => d.value).join('');
     const errorMsg = document.getElementById('error-msg');
