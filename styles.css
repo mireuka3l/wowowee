@@ -79,6 +79,8 @@ h2 {
     border-radius: 10px;
     outline: none;
     transition: all 0.3s;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .password-input input:focus {
@@ -178,4 +180,39 @@ button:active {
     0%, 100% { transform: scale(1); }
     10%, 30% { transform: scale(1.1); }
     20%, 40% { transform: scale(1); }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .password-input {
+        gap: 10px;
+    }
+
+    .password-input input {
+        width: 50px;
+        height: 60px;
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 0.95em;
+    }
+
+    .message-text {
+        font-size: 1.05em;
+        padding: 15px;
+    }
 }
