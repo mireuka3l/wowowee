@@ -23,14 +23,10 @@ digits.forEach((digit, index) => {
     });
 });
 
-function toggleHint() {
-    const hint = document.getElementById("hintText");
+function showHint() {
+    document.getElementById("hintBtn").style.display = "none";
 
-    if (hint.style.display === "none") {
-        hint.style.display = "block";
-    } else {
-        hint.style.display = "none";
-    }
+    document.getElementById("hintText").style.display = "block";
 }
 
 
