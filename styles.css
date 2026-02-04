@@ -18,7 +18,8 @@ body {
 }
 
 .container {
-    background: #ffc2d1;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     font-family: "Pixelify Sans", sans-serif;
     padding: 40px;
@@ -46,7 +47,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .bottom-buttons {
@@ -60,15 +61,31 @@ body {
 }
 
 h1 {
-    color: #e74c3c;
+    font-family: 'Pixelify Sans', cursive;
+    color: #ffb3d9;
     margin-bottom: 20px;
     font-size: 2em;
+    font-weight: 700;
+    text-shadow: 
+        -2px -2px 0 #ff69b4
+        2px -2px 0 #ff69b4
+        -2px 2px 0 #ff69b4
+        2px 2px 0 #ff69b4 
+        0 0 10px rgba(255, 105, 180, 0.3);               
 }
 
 h2 {
-    color: #c0392b;
-    margin-bottom: 30px;
-    font-size: 1.5em;
+    font-family: 'Pixelify Sans', cursive;
+    color: #ffb3d9;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 
+        -2px -2px 0 #ff69b4
+        2px -2px 0 #ff69b4
+        -2px 2px 0 #ff69b4
+        2px 2px 0 #ff69b4 
+        0 0 10px rgba(255, 105, 180, 0.3);   
 }
 
 .greeting-text {
@@ -105,12 +122,13 @@ h2 {
 }
 
 .password-input input:focus {
-    border-color: #e74c3c;
+    border-color: #ff69b4;
     transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
 }
 
 .error-message {
-    color: #e74c3c;
+    color: #ff69b4;
     margin: 20px 0;
     font-weight: bold;
     display: none;
@@ -139,21 +157,24 @@ h2 {
 
 button {
     font-family: "Pixelify Sans", sans-serif;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background: linear-gradient(135deg, #ffb3d9, #ff69b4);
     color: white;
-    border: none;
+    border: 3px solid #ff69b4;
     padding: 15px 30px;
     font-size: 0.6em;
+    font-weight: 600;
     border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s;
     margin: 10px;
     min-width: 100px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
 }
 
 button:active {
@@ -164,6 +185,8 @@ button:active {
     display: grid;
     gap: 15px;
     margin: 30px 0;
+    width: 100%;
+    justify-items: center;
 }
 
 .reason-buttons button {
@@ -173,7 +196,8 @@ button:active {
 }
 
 .reason-buttons button.completed {
-    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    background: linear-gradient(135deg, #d3d3d3, #a9a9a9);
+    border-color: #808080;
     opacity: 0.7;
 }
 
@@ -182,10 +206,11 @@ button:active {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 20px;
 }
 
 .navigation {
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -195,15 +220,29 @@ button:active {
     color: #555;
     font-size: 1.2em;
     line-height: 1.8;
-    margin: 30px 0;
+    margin: 20px 0;
     padding: 20px;
-    background: #f8f9fa;
+    background: rgba(248, 249, 250, 0.9);
     border-radius: 15px;
-    border-left: 4px solid #e74c3c;
+    border-left: 4px solid #ff69b4;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.middle-text {
+    color: #777;
+    font-size: 1.15em;
+    line-height: 2;
+    margin: 30px 0;
+    font-style: italic;
+    text-align: center;
 }
 
 .heart {
-    color: #e74c3c;
+    color: #ff69b4;
     animation: heartbeat 1.5s infinite;
 }
 
@@ -245,5 +284,18 @@ button:active {
     .message-text {
         font-size: 1.05em;
         padding: 15px;
+    }
+
+    .reason-buttons {
+        gap: 12px;
+    }
+
+    .choice-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .choice-buttons button {
+        width: 100%;
     }
 }
