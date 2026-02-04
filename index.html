@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Greeting & Password -->
+        <div id="page-greeting" class="page active">
+            <h1>Welcome, My Love <span class="heart">❤️</span></h1>
+            <p class="greeting-text">
+                I made something special for you...<br>
+                But first, you need to unlock it!
+            </p>
+            <p class="password-label">The password is our monthsary</p>
+            <div class="password-input">
+                <input type="password" maxlength="1" id="digit1" pattern="[0-9]" inputmode="numeric">
+                <input type="password" maxlength="1" id="digit2" pattern="[0-9]" inputmode="numeric">
+                <input type="password" maxlength="1" id="digit3" pattern="[0-9]" inputmode="numeric">
+                <input type="password" maxlength="1" id="digit4" pattern="[0-9]" inputmode="numeric">
+            </div>
+            <p class="error-message" id="error-msg">That's wrong my love 💔</p>
+            <div class="gif-container" id="error-gif" style="display: none;">
+                <!-- Add your crying gif here -->
+                <img src="crying.gif" alt="Crying" onerror="this.style.display='none'">
+            </div>
+            <button onclick="checkPassword()">Enter</button>
+            <button id="restart-btn" style="display: none;" onclick="restartPassword()">Restart</button>
+        </div>
+
+        <!-- Page 2: Reasons Menu -->
+        <div id="page-reasons" class="page">
+            <h1>Reasons Why I Love You <span class="heart">❤️</span></h1>
+            <div class="reason-buttons">
+                <button onclick="showReason(1)">Reason #1</button>
+                <button onclick="showReason(2)">Reason #2</button>
+                <button onclick="showReason(3)">Reason #3</button>
+                <button onclick="showReason(4)">Reason #4</button>
+                <button onclick="showReason(5)">Reason #5</button>
+            </div>
+        </div>
+
+        <!-- Reason Pages -->
+        <div id="reason-1" class="page">
+            <h2>You steal my food</h2>
+            <div class="choice-buttons">
+                <button onclick="showPage('reason-1-unacceptable')">Unacceptable</button>
+                <button onclick="showPage('reason-1-andyet')">And Yet...</button>
+            </div>
+            <div class="navigation">
+                <button onclick="showPage('page-reasons')">Back</button>
+            </div>
+        </div>
+
+        <div id="reason-1-unacceptable" class="page">
+            <h2>Unacceptable? <span class="heart">😤</span></h2>
+            <p class="message-text">
+                I know, I know! You always take the last bite, the best piece, the crispiest fry...<br>
+                But honestly? I'd give you all my food anyway. Seeing you happy makes everything taste better. 💕
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-1')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <div id="reason-1-andyet" class="page">
+            <h2>And Yet... <span class="heart">😊</span></h2>
+            <p class="message-text">
+                And yet, I love sharing everything with you. My fries, my snacks, my desserts...<br>
+                Because when you smile after stealing my food, that's the most precious thing in the world to me. 🥰
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-1')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <!-- Reason 2 -->
+        <div id="reason-2" class="page">
+            <h2>You're adorably stubborn</h2>
+            <div class="choice-buttons">
+                <button onclick="showPage('reason-2-annoying')">That's Annoying!</button>
+                <button onclick="showPage('reason-2-cute')">It's Cute?</button>
+            </div>
+            <div class="navigation">
+                <button onclick="showPage('page-reasons')">Back</button>
+            </div>
+        </div>
+
+        <div id="reason-2-annoying" class="page">
+            <h2>Annoying? Maybe! <span class="heart">😅</span></h2>
+            <p class="message-text">
+                Yes, you never back down, even when you're clearly wrong (don't deny it!).<br>
+                But that fire in you? That determination? It's one of the things that made me fall for you. ❤️
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-2')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <div id="reason-2-cute" class="page">
+            <h2>Absolutely Cute! <span class="heart">🥰</span></h2>
+            <p class="message-text">
+                The way you pout when you're arguing, the way you cross your arms and stand your ground...<br>
+                It's impossible not to smile. You're so adorable even when you're being difficult! 💕
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-2')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <!-- Reason 3 -->
+        <div id="reason-3" class="page">
+            <h2>Your laugh brightens my day</h2>
+            <div class="choice-buttons">
+                <button onclick="showPage('reason-3-really')">Really?</button>
+                <button onclick="showPage('reason-3-aww')">Aww... 💕</button>
+            </div>
+            <div class="navigation">
+                <button onclick="showPage('page-reasons')">Back</button>
+            </div>
+        </div>
+
+        <div id="reason-3-really" class="page">
+            <h2>Really! <span class="heart">✨</span></h2>
+            <p class="message-text">
+                Your laugh is like sunshine breaking through clouds. It's contagious, it's genuine, it's YOU.<br>
+                On my worst days, hearing you laugh makes everything better. You're my happiness. 🌟
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-3')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <div id="reason-3-aww" class="page">
+            <h2>You're My Sunshine <span class="heart">☀️</span></h2>
+            <p class="message-text">
+                Every giggle, every chuckle, every full-belly laugh from you...<br>
+                They're all moments I treasure. You light up my world in ways you can't even imagine. 💛
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-3')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <!-- Reason 4 -->
+        <div id="reason-4" class="page">
+            <h2>You understand me</h2>
+            <div class="choice-buttons">
+                <button onclick="showPage('reason-4-always')">Always</button>
+                <button onclick="showPage('reason-4-sometimes')">Sometimes...</button>
+            </div>
+            <div class="navigation">
+                <button onclick="showPage('page-reasons')">Back</button>
+            </div>
+        </div>
+
+        <div id="reason-4-always" class="page">
+            <h2>My Soulmate <span class="heart">💫</span></h2>
+            <p class="message-text">
+                You get me in ways nobody else does. My weird jokes, my random thoughts, my silent moments...<br>
+                With you, I can be completely myself. That's the greatest gift anyone's ever given me. 💝
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-4')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <div id="reason-4-sometimes" class="page">
+            <h2>And That's Perfect <span class="heart">😊</span></h2>
+            <p class="message-text">
+                We don't need to understand everything about each other. What matters is that you try.<br>
+                You listen, you care, you make the effort. And that means everything to me. ❤️
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-4')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <!-- Reason 5 -->
+        <div id="reason-5" class="page">
+            <h2>You make me want to be better</h2>
+            <div class="choice-buttons">
+                <button onclick="showPage('reason-5-how')">How so?</button>
+                <button onclick="showPage('reason-5-sweet')">That's Sweet</button>
+            </div>
+            <div class="navigation">
+                <button onclick="showPage('page-reasons')">Back</button>
+            </div>
+        </div>
+
+        <div id="reason-5-how" class="page">
+            <h2>You Inspire Me <span class="heart">🌸</span></h2>
+            <p class="message-text">
+                You inspire me to work harder, dream bigger, and love deeper.<br>
+                Being with you makes me want to be the best version of myself, because you deserve nothing less. 💪❤️
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-5')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+
+        <div id="reason-5-sweet" class="page">
+            <h2>Forever and Always <span class="heart">💍</span></h2>
+            <p class="message-text">
+                You're my motivation, my inspiration, my reason to keep growing.<br>
+                I love you more than words can say, and I'll spend forever showing you. 💖
+            </p>
+            <div class="navigation">
+                <button onclick="showPage('reason-5')">Back</button>
+                <button onclick="showPage('page-reasons')">Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
