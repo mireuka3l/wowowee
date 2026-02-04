@@ -1,5 +1,5 @@
 // Password functionality
-const correctPassword = '0000'; // CHANGE THIS to your actual monthsary (4 digits)
+const correctPassword = '0213'; // CHANGE THIS to your actual monthsary (4 digits)
 
 const digits = [
     document.getElementById('digit1'),
@@ -62,6 +62,28 @@ function showPage(pageId) {
 
 function showReason(num) {
     showPage('reason-' + num);
+
+    markReasonCompleted(num);
+}
+
+function markReasonCompleted(num) {
+    const reasonButtons = document.querySelectorAll('.reason-buttons button');
+    if (reasonButtons[num - 1]) {
+        reasonButtons[num - 1].classList.add('completed');
+    }
+
+    localStorage.setItem('reason' + num + 'Completed', 'true');
+}
+
+function loadCompletedReasons() {
+    for (let i = 1; i <= 5; i++) {
+        if (localStorage.getItem('reason' + i + 'Completed') === 'true') {
+            const reasonButtons = document.querySelectorAll('.reason-buttons button');
+            if (reasonButtons[i - 1]) {
+                reasonButtons[i - 1].classList.add.apply('completed');
+            }
+        }
+    }
 }
 
 // Initialize
