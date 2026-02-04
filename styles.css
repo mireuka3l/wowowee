@@ -116,6 +116,10 @@ h2 {
     border-radius: 10px;
 }
 
+#hintText {
+    margin-bottom: 10px;
+}
+
 button {
     font-family: "Pixelify Sans", sans-serif;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
