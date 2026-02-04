@@ -62,31 +62,32 @@ body {
 
 h1 {
     font-family: 'Pixelify Sans', cursive;
-    color: #ffb3d9;
+    color: transparent;
+    background: linear-gradient(135deg, #ffccee, #ffa3d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 20px;
     font-size: 2em;
     font-weight: 700;
-    text-shadow: 
-        -2px -2px 0 #ff69b4
-        2px -2px 0 #ff69b4
-        -2px 2px 0 #ff69b4
-        2px 2px 0 #ff69b4 
-        0 0 10px rgba(255, 105, 180, 0.3);               
+    -webkit-text-stroke: 2.5px #e91e8c;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
 h2 {
     font-family: 'Pixelify Sans', cursive;
-    color: #ffb3d9;
+    color: transparent;
+    background: linear-gradient(135deg, #ffccee, #ffa3d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 20px;
     font-size: 2em;
     font-weight: 700;
-    text-shadow: 
-        -2px -2px 0 #ff69b4
-        2px -2px 0 #ff69b4
-        -2px 2px 0 #ff69b4
-        2px 2px 0 #ff69b4 
-        0 0 10px rgba(255, 105, 180, 0.3);   
+    -webkit-text-stroke: 2.5px #e91e8c;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
+
 
 .greeting-text {
     color: #555;
