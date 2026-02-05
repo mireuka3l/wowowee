@@ -24,7 +24,11 @@
                 I made something for you...<br>
                 But first, you need to unlock it!
             </p>
-            <button id="hintBtn" onclick="showHint()">Hint</button>
+            
+            <div class="button-group">
+                <button id="hintBtn" onclick="showHint()">Hint</button>
+            </div>
+            
             <p id="hintText" style="display: none; font-weight: bold;">
                My Birthday
             </p>
@@ -35,12 +39,17 @@
                 <input type="password" maxlength="1" id="digit3" pattern="[0-9]" inputmode="numeric">
                 <input type="password" maxlength="1" id="digit4" pattern="[0-9]" inputmode="numeric">
             </div>
+            
             <p class="error-message" id="error-msg">NOOOOOO, that's wrong 💔</p>
+            
             <div class="gif-container" id="error-gif" style="display: none;">
                 <img src="crying.gif" alt="Crying" onerror="this.style.display='none'">
             </div>
-            <button onclick="checkPassword()">Enter</button>
-            <button id="restart-btn" style="display: none;" onclick="restartPassword()">Restart</button>
+            
+            <div class="button-group">
+                <button onclick="checkPassword()">Enter</button>
+                <button id="restart-btn" style="display: none;" onclick="restartPassword()">Restart</button>
+            </div>
         </div>
 
         <!-- Page 2: Reasons Menu -->
