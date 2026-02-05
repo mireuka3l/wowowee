@@ -116,3 +116,14 @@ function applyWaveEffect(element) {
 
     element.classList.add("wave-text");
 }
+
+
+// Apply wave animation when page loads and when switching pages
+document.addEventListener('DOMContentLoaded', waveText);
+
+// Re-apply wave animation when pages change
+const originalShowPage = showPage;
+showPage = function(pageId) {
+    originalShowPage(pageId);
+    setTimeout(waveText, 100); // Small delay to ensure page is visible
+};
