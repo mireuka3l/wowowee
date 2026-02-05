@@ -24,7 +24,7 @@ body {
     font-family: "Pixelify Sans", sans-serif;
     padding: 40px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    max-width: 650px;
+    max-width: 900px;
     width: 100%;
     text-align: center;
     min-height: 400px;
@@ -72,6 +72,13 @@ h1 {
     font-weight: 700;
     -webkit-text-stroke: 1.5px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+}
+
+.sob-gif {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    vertical-align: middle;
 }
 
 .title-gif {
