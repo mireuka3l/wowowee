@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(221, 221, 221, 0.438);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     font-family: "Pixelify Sans", sans-serif;
@@ -70,7 +70,7 @@ h1 {
     margin-bottom: 20px;
     font-size: 2em;
     font-weight: 700;
-    -webkit-text-stroke: 2.5px #e91e8c;
+    -webkit-text-stroke: 5px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
