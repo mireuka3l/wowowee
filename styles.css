@@ -113,7 +113,7 @@ h2 {
 
 
 .greeting-text {
-    color: #555;
+    color: 	#b879ff;
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -224,7 +224,41 @@ button:active {
     width: 47%;
     padding: 10px;
     font-size: 1.1em;
+    opacity: 0;
+    animation: slideInButton 0.5s ease forwards;
 }
+
+.reason-buttons button:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.reason-buttons button:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.reason-buttons button:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.reason-buttons button:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.reason-buttons button:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInButton {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .reason-buttons button.completed {
     background: linear-gradient(135deg, #d3d3d3, #a9a9a9);
