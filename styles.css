@@ -75,23 +75,18 @@ h1 {
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
-h1 span {
+.wave-text span {
     display: inline-block;
-    animation: wave 1.5s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: waveIn 0.6s forwards;
 }
 
-@keyframes wave {
-     0%, 100% {
-        transform: translateY(0px);
+@keyframes waveIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-h2 span:not(.heart) {
-    display: inline-block;
-    animation: wave 1.5s ease-in-out infinite;
 }
 
 .basta-gif {
