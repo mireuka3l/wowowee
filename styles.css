@@ -48,6 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-bottom: 100px;
 }
 
 .bottom-buttons {
@@ -68,16 +69,16 @@ h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: 3.5em;
     font-weight: 700;
-    -webkit-text-stroke: 1.5px #e91e8c;
+    -webkit-text-stroke: 2px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
 .basta-gif {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
     vertical-align: middle;
 }
 
@@ -103,10 +104,10 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 20px;
-    font-size: 2em;
+    margin-bottom: 8px;
+    font-size: 3em;
     font-weight: 700;
-    -webkit-text-stroke: 1.5px #e91e8c;
+    -webkit-text-stroke: 2px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
@@ -246,15 +247,20 @@ button:active {
     gap: 15px;
 }
 
+.navigation2 {
+    display: flex;
+    justify-content: center;
+    gap: 640px;
+}
+
 .message-text {
     color: #555;
     font-size: 1.2em;
     line-height: 1.8;
     margin: 20px 0;
+    margin-left: 40px;
+    margin-right: 40px;
     padding: 20px;
-    background: rgba(248, 249, 250, 0.9);
-    border-radius: 15px;
-    border-left: 4px solid #ff69b4;
     flex: 1;
     display: flex;
     align-items: center;
