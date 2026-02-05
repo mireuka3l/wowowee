@@ -113,14 +113,14 @@ h2 {
 
 
 .greeting-text {
-    color: 	#b879ff;
+    color: 	#734c3f;
     font-size: 1.1em;
     line-height: 1.6;
     margin-bottom: 30px;
 }
 
 .password-label {
-    color: #666;
+    color: #734c3f;
     font-size: 0.95em;
     margin-bottom: 20px;
 }
@@ -176,6 +176,7 @@ h2 {
 }
 
 #hintText {
+    color: #734c3f;
     margin-bottom: 10px;
 }
 
@@ -225,27 +226,27 @@ button:active {
     padding: 10px;
     font-size: 1.1em;
     opacity: 0;
-    animation: slideInButton 0.5s ease forwards;
+    animation: slideInButton 1s ease forwards;
 }
 
 .reason-buttons button:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.reason-buttons button:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.reason-buttons button:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.reason-buttons button:nth-child(4) {
+.reason-buttons button:nth-child(2) {
     animation-delay: 0.4s;
 }
 
+.reason-buttons button:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.reason-buttons button:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
 .reason-buttons button:nth-child(5) {
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 @keyframes slideInButton {
@@ -264,6 +265,18 @@ button:active {
     background: linear-gradient(135deg, #d3d3d3, #a9a9a9);
     border-color: #808080;
     opacity: 0.6;
+    animation: completedPulse 2s ease-in-out infinite;
+}
+
+@keyframes completedPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(0.98);
+        opacity: 0.5;
+    }
 }
 
 .choice-buttons {
