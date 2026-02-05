@@ -90,14 +90,17 @@ function loadCompletedReasons() {
 digits[0].focus();
 
 function applyWaveEffect(element) {
+    // Prevent double animation
+    element.classList.remove("wave-text");
+
     const nodes = [...element.childNodes];
     element.innerHTML = "";
 
     let index = 0;
 
     nodes.forEach(node => {
-        // If it's text
         if (node.nodeType === Node.TEXT_NODE) {
+
             [...node.textContent].forEach(char => {
                 const span = document.createElement("span");
 
@@ -107,23 +110,39 @@ function applyWaveEffect(element) {
                 element.appendChild(span);
                 index++;
             });
-        }
-        // If it's an element (like img, emoji span, etc)
-        else {
+
+        } else {
             element.appendChild(node);
         }
     });
+
+    // Force reflow (restart animation)
+    void element.offsetWidth;
 
     element.classList.add("wave-text");
 }
 
 
-// Apply wave animation when page loads and when switching pages
-document.addEventListener('DOMContentLoaded', waveText);
+// Animate headings on page load
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("h1, h2").forEach(h => {
+        applyWaveEffect(h);
+    });
+});
 
-// Re-apply wave animation when pages change
-const originalShowPage = showPage;
-showPage = function(pageId) {
-    originalShowPage(pageId);
-    setTimeout(waveText, 100); // Small delay to ensure page is visible
-};
+
+// Re-animate when switching pages
+function showPage(id) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    const newPage = document.getElementById(id);
+    newPage.classList.add("active");
+
+    // Animate only visible page headings
+    newPage.querySelectorAll("h1, h2").forEach(h => {
+        applyWaveEffect(h);
+    });
+}
