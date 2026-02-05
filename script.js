@@ -88,3 +88,50 @@ function loadCompletedReasons() {
 
 // Initialize
 digits[0].focus();
+
+function waveText() {
+    const headers = document.querySelectorAll('h1, h2');
+    
+    headers.forEach(header => {
+        // Skip if it contains images (like the welcome header)
+        if (header.querySelector('img')) {
+            return;
+        }
+        
+        // Get the text content
+        let text = header.textContent;
+        
+        // Clear the header
+        header.innerHTML = '';
+        
+        // Wrap each character in a span with animation delay
+        let delay = 0;
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            const span = document.createElement('span');
+            
+            // For spaces, use non-breaking space
+            if (char === ' ') {
+                span.innerHTML = '&nbsp;';
+            } else {
+                span.textContent = char;
+            }
+            
+            // Add staggered animation delay
+            span.style.animationDelay = `${delay}s`;
+            delay += 0.05; // 50ms delay between each letter
+            
+            header.appendChild(span);
+        }
+    });
+}
+
+// Apply wave animation when page loads and when switching pages
+document.addEventListener('DOMContentLoaded', waveText);
+
+// Re-apply wave animation when pages change
+const originalShowPage = showPage;
+showPage = function(pageId) {
+    originalShowPage(pageId);
+    setTimeout(waveText, 100); // Small delay to ensure page is visible
+};
