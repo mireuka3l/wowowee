@@ -90,24 +90,29 @@ function loadCompletedReasons() {
 digits[0].focus();
 
 function applyWaveEffect(element) {
-    const text = element.innerText;
+    const nodes = [...element.childNodes];
     element.innerHTML = "";
 
-    [...text].forEach((char, i) => {
-        const span = document.createElement("span");
-        span.innerText = char === " " ? "\u00A0" : char;
-        span.style.animationDelay = `${i * 0.05}s`;
-        element.appendChild(span);
+    let index = 0;
+
+    nodes.forEach(node => {
+        // If it's text
+        if (node.nodeType === Node.TEXT_NODE) {
+            [...node.textContent].forEach(char => {
+                const span = document.createElement("span");
+
+                span.textContent = char === " " ? "\u00A0" : char;
+                span.style.animationDelay = `${index * 0.05}s`;
+
+                element.appendChild(span);
+                index++;
+            });
+        }
+        // If it's an element (like img, emoji span, etc)
+        else {
+            element.appendChild(node);
+        }
     });
 
     element.classList.add("wave-text");
 }
-
-// Apply to all h1 and h2 when page loads
-function animateHeadings() {
-    document.querySelectorAll("h1, h2").forEach(h => {
-        applyWaveEffect(h);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", animateHeadings);
