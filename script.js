@@ -89,60 +89,53 @@ function loadCompletedReasons() {
 // Initialize
 digits[0].focus();
 
-function applyWaveEffect(element) {
-    // Prevent double animation
-    element.classList.remove("wave-text");
-
-    const nodes = [...element.childNodes];
-    element.innerHTML = "";
-
-    let index = 0;
-
-    nodes.forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE) {
-
-            [...node.textContent].forEach(char => {
-                const span = document.createElement("span");
-
-                span.textContent = char === " " ? "\u00A0" : char;
-                span.style.animationDelay = `${index * 0.05}s`;
-
-                element.appendChild(span);
-                index++;
-            });
-
-        } else {
-            element.appendChild(node);
+function waveText() {
+    const headers = document.querySelectorAll('h1, h2');
+    
+    headers.forEach(header => {
+        // Skip if it contains images (like the welcome header)
+        if (header.querySelector('img')) {
+            return;
+        }
+        
+        // Get the text content
+        let text = header.textContent;
+        
+        // Clear the header
+        header.innerHTML = '';
+        
+        // Wrap each character in a span with animation delay
+        let delay = 0;
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            const span = document.createElement('span');
+            
+            // For spaces, use non-breaking space
+            if (char === ' ') {
+                span.innerHTML = '&nbsp;';
+            } else {
+                span.textContent = char;
+            }
+            
+            // Add staggered animation delay
+            span.style.animationDelay = `${delay}s`;
+            delay += 0.05; // 50ms delay between each letter
+            
+            header.appendChild(span);
         }
     });
-
-    // Force reflow (restart animation)
-    void element.offsetWidth;
-
-    element.classList.add("wave-text");
 }
 
+// Apply wave animation when page loads and when switching pages
+document.addEventListener('DOMContentLoaded', waveText);
 
-// Animate headings on page load
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("h1, h2").forEach(h => {
-        applyWaveEffect(h);
-    });
-});
+// Re-apply wave animation when pages change
+const originalShowPage = showPage;
+showPage = function(pageId) {
+    originalShowPage(pageId);
+    setTimeout(waveText, 100); // Small delay to ensure page is visible
+};
 
 
-// Re-animate when switching pages
-function showPage(id) {
 
-    document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-    });
 
-    const newPage = document.getElementById(id);
-    newPage.classList.add("active");
-
-    // Animate only visible page headings
-    newPage.querySelectorAll("h1, h2").forEach(h => {
-        applyWaveEffect(h);
-    });
-}
