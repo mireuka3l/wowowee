@@ -91,68 +91,46 @@ digits[0].focus();
 
 function waveText() {
     const headers = document.querySelectorAll('h1, h2');
-    
+
     headers.forEach(header => {
-        // Check if it contains images
-        const hasImages = header.querySelector('img');
-        
-        if (hasImages) {
-            // Handle headers with images - wrap only text nodes
-            const newContent = [];
-            let delay = 0;
-            
-            header.childNodes.forEach(node => {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    // This is text - wrap each character
-                    const text = node.textContent;
-                    for (let i = 0; i < text.length; i++) {
-                        const char = text[i];
-                        const span = document.createElement('span');
-                        
-                        if (char === ' ') {
-                            span.innerHTML = '&nbsp;';
-                        } else {
-                            span.textContent = char;
-                        }
-                        
-                        span.style.animationDelay = `${delay}s`;
-                        delay += 0.05;
-                        newContent.push(span);
-                    }
-                } else if (node.nodeType === Node.ELEMENT_NODE) {
-                    // This is an element (like img) - keep it as is
-                    node.style.animationDelay = `${delay}s`;
-                    delay += 0.05;
-                    newContent.push(node.cloneNode(true));
-                }
-            });
-            
-            // Clear and rebuild header
-            header.innerHTML = '';
-            newContent.forEach(element => header.appendChild(element));
-            
-        } else {
-            // Handle headers without images - same as before
-            let text = header.textContent;
-            header.innerHTML = '';
-            
-            let delay = 0;
-            for (let i = 0; i < text.length; i++) {
-                const char = text[i];
-                const span = document.createElement('span');
-                
-                if (char === ' ') {
-                    span.innerHTML = '&nbsp;';
-                } else {
-                    span.textContent = char;
-                }
-                
-                span.style.animationDelay = `${delay}s`;
-                delay += 0.05;
-                
-                header.appendChild(span);
-            }
+
+        // Save original HTML (with images)
+        if (!header.dataset.original) {
+            header.dataset.original = header.innerHTML;
         }
+
+        // Restore original first (important for re-animation)
+        header.innerHTML = header.dataset.original;
+
+        const nodes = [...header.childNodes];
+        header.innerHTML = "";
+
+        let delay = 0;
+
+        nodes.forEach(node => {
+
+            // Animate text only
+            if (node.nodeType === Node.TEXT_NODE) {
+
+                [...node.textContent].forEach(char => {
+                    const span = document.createElement("span");
+
+                    span.innerHTML = char === " " ? "&nbsp;" : char;
+                    span.style.animationDelay = `${delay}s`;
+
+                    delay += 0.05;
+                    header.appendChild(span);
+                });
+
+            }
+            // Keep images as-is
+            else {
+                node.style.animationDelay = `${delay}s`;
+                header.appendChild(node.cloneNode(true));
+                delay += 0.05;
+            }
+        });
+
     });
 }
 
