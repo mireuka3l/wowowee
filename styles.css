@@ -80,6 +80,7 @@ h1 span {
     display: inline-block;
     opacity: 0;
     animation: waveIn 0.6s ease forwards;
+    text-align: center;
 }
 
 @keyframes waveIn {
@@ -100,6 +101,7 @@ h1 span {
     opacity: 0;
     transform: translateY(20px);
     animation: waveIn 0.6s forwards;
+    text-align: center;
 }
 
 @keyframes waveIn {
@@ -151,6 +153,7 @@ h2 span:not(.heart) {
     display: inline-block;
     opacity: 0;
     animation: waveIn 0.6s ease forwards;
+    text-align: center;
 }
 
 
