@@ -135,7 +135,3 @@ showPage = function(pageId) {
     originalShowPage(pageId);
     setTimeout(waveText, 100); // Small delay to ensure page is visible
 };
-
-
-
-

@@ -75,6 +75,25 @@ h1 {
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
 }
 
+h1 span {
+    display: inline-block;
+    opacity: 0;
+    animation: waveIn 0.6s ease forwards;
+}
+
+@keyframes waveIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 .wave-text span {
     display: inline-block;
     opacity: 0;
@@ -123,6 +142,12 @@ h2 {
     font-weight: 700;
     -webkit-text-stroke: 2px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
+}
+
+h2 span:not(.heart) {
+    display: inline-block;
+    opacity: 0;
+    animation: waveIn 0.6s ease forwards;
 }
 
 
