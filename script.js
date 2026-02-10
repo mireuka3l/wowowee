@@ -93,35 +93,65 @@ function waveText() {
     const headers = document.querySelectorAll('h1, h2');
     
     headers.forEach(header => {
-        // Skip if it contains images (like the welcome header)
-        if (header.querySelector('img')) {
-            return;
-        }
+        // Check if it contains images
+        const hasImages = header.querySelector('img');
         
-        // Get the text content
-        let text = header.textContent;
-        
-        // Clear the header
-        header.innerHTML = '';
-        
-        // Wrap each character in a span with animation delay
-        let delay = 0;
-        for (let i = 0; i < text.length; i++) {
-            const char = text[i];
-            const span = document.createElement('span');
+        if (hasImages) {
+            // Handle headers with images - wrap only text nodes
+            const newContent = [];
+            let delay = 0;
             
-            // For spaces, use non-breaking space
-            if (char === ' ') {
-                span.innerHTML = '&nbsp;';
-            } else {
-                span.textContent = char;
+            header.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    // This is text - wrap each character
+                    const text = node.textContent;
+                    for (let i = 0; i < text.length; i++) {
+                        const char = text[i];
+                        const span = document.createElement('span');
+                        
+                        if (char === ' ') {
+                            span.innerHTML = '&nbsp;';
+                        } else {
+                            span.textContent = char;
+                        }
+                        
+                        span.style.animationDelay = `${delay}s`;
+                        delay += 0.05;
+                        newContent.push(span);
+                    }
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    // This is an element (like img) - keep it as is
+                    node.style.animationDelay = `${delay}s`;
+                    delay += 0.05;
+                    newContent.push(node.cloneNode(true));
+                }
+            });
+            
+            // Clear and rebuild header
+            header.innerHTML = '';
+            newContent.forEach(element => header.appendChild(element));
+            
+        } else {
+            // Handle headers without images - same as before
+            let text = header.textContent;
+            header.innerHTML = '';
+            
+            let delay = 0;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                const span = document.createElement('span');
+                
+                if (char === ' ') {
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = char;
+                }
+                
+                span.style.animationDelay = `${delay}s`;
+                delay += 0.05;
+                
+                header.appendChild(span);
             }
-            
-            // Add staggered animation delay
-            span.style.animationDelay = `${delay}s`;
-            delay += 0.05; // 50ms delay between each letter
-            
-            header.appendChild(span);
         }
     });
 }
