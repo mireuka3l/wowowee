@@ -78,7 +78,6 @@ h1 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
 h1 span {
@@ -155,7 +154,6 @@ h2 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
 h2 span:not(.heart) {
