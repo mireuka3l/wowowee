@@ -74,17 +74,19 @@ h1 {
     font-weight: 700;
     -webkit-text-stroke: 2px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+}
+
+h1 > * {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 h1 span {
     display: inline-block;
     opacity: 0;
     animation: waveIn 0.6s ease forwards;
-    text-align: center;
 }
 
 @keyframes waveIn {
@@ -150,10 +152,13 @@ h2 {
     font-weight: 700;
     -webkit-text-stroke: 2px #e91e8c;
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+}
+
+h2 > * {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 h2 span:not(.heart) {
