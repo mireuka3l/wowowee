@@ -326,6 +326,16 @@ button:active {
     animation: completedPulse 2s ease-in-out infinite;
 }
 
+.secret-button {
+    background: linear-gradient(135deg, #ffd700, #ffaa00) !important;
+    border-color: #ff8c00 !important;
+    font-weight: 700 !important;
+    font-size: 1.2em !important;
+    opacity: 0;
+    animation: secretReveal 1s ease forwards, secretPulse 2s ease-in-out infinite 1s !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6) !important;
+}
+
 @keyframes completedPulse {
     0%, 100% {
         transform: scale(1);
@@ -334,6 +344,28 @@ button:active {
     50% {
         transform: scale(0.98);
         opacity: 0.5;
+    }
+}
+
+@keyframes secretReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes secretPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
     }
 }
 

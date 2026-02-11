@@ -73,6 +73,9 @@ function markReasonCompleted(num) {
     }
 
     localStorage.setItem('reason' + num + 'Completed', 'true');
+    
+    // Check if all reasons are completed
+    checkAllCompleted();
 }
 
 function loadCompletedReasons() {
@@ -84,10 +87,32 @@ function loadCompletedReasons() {
             }
         }
     }
+    
+    // Check if secret button should be shown
+    checkAllCompleted();
+}
+
+function checkAllCompleted() {
+    let allCompleted = true;
+    for (let i = 1; i <= 5; i++) {
+        if (localStorage.getItem('reason' + i + 'Completed') !== 'true') {
+            allCompleted = false;
+            break;
+        }
+    }
+    
+    // Show secret button if all are completed
+    if (allCompleted) {
+        const secretBtn = document.getElementById('secret-btn');
+        if (secretBtn) {
+            secretBtn.style.display = 'inline-block';
+        }
+    }
 }
 
 // Initialize
 digits[0].focus();
+loadCompletedReasons();
 
 function waveText() {
     const headers = document.querySelectorAll('h1, h2');

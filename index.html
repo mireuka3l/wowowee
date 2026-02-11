@@ -59,6 +59,9 @@
                 <button onclick="showReason(3)"><img src="laugh.gif" alt="laugh" class="basta-gif"> Your laugh makes my day</button>
                 <button onclick="showReason(4)"><img src="understand.gif" alt="understand" class="basta-gif"> You understand me</button>
                 <button onclick="showReason(5)"><img src="better.gif" alt="better" class="basta-gif"> You make me want to do better</button>
+                <button id="secret-btn" class="secret-button" onclick="showPage('secret-message')" style="display: none;">
+                    ✨ You found a secret message! ✨
+                </button>
             </div>
         </div>
 
@@ -83,8 +86,8 @@
                 <h2>Sorry baby...<img src="sob.gif" alt="sob" class="sob-gif"></h2>
                 <p class="message-text">
                     <span>
-                        I know, I know! You always take the last bite, the best piece, the crispiest fry...<br>
-                        But honestly? I'd give you all my food anyway. Seeing you happy makes everything taste better. 💕
+                        Don't be sorry doooo!! If anything, this means na you care about our relationship and I'm glad about that.<br>
+                        Please do tell what youre thinking always ha, I'll be here to assure you always.
                     </span>
                     <img src="food1.gif" alt="cute food" class="message-image" onerror="this.style.display='none'">
                 </p>
@@ -102,8 +105,8 @@
                 <h2>Whatthehill</span></h2>
                 <p class="message-text">
                     <span>
-                        And yet, I love sharing everything with you. My fries, my snacks, my desserts...<br>
-                        Because when you smile after stealing my food, that's the most precious thing in the world to me. 🥰
+                        Hell yeahhh, but it's not a bad thing okay? That's one of the things I love about you.<br>
+                        And I wouldn't trade that for anything in the world. I love you always daf :>
                     </span>
                     <img src="food1.gif" alt="cute food" class="message-image" onerror="this.style.display='none'">
                 </p>
@@ -328,6 +331,28 @@
                 <div class="navigation">
                     <button onclick="showPage('reason-5')">Back</button>
                     <button onclick="showPage('page-reasons')">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secret Message Page -->
+        <div id="secret-message" class="page">
+            <div class="content-wrapper">
+                <h2>My Secret Message 💝</h2>
+                <p class="message-text">
+                    <span>
+                        You did it! You explored every reason why I love you...<br><br>
+                        But here's the real secret: there aren't just 5 reasons. There are infinite reasons.<br>
+                        Every moment with you gives me a new reason to fall deeper in love. ✨<br><br>
+                        Thank you for being you. Thank you for being mine. 💕<br>
+                        I love you more than words could ever express. 💖
+                    </span>
+                    <img src="secret.gif" alt="secret love" class="message-image" onerror="this.style.display='none'">
+                </p>
+            </div>
+            <div class="bottom-buttons">
+                <div class="navigation">
+                    <button onclick="showPage('page-reasons')">Back to Menu</button>
                 </div>
             </div>
         </div>
