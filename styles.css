@@ -76,6 +76,7 @@ h1 {
     filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.3));
     text-align: center;
     width: 100%;
+    white-space: nowrap;
 }
 
 h1 > * {
