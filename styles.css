@@ -439,6 +439,32 @@ button:active {
     20%, 40% { transform: scale(1); }
 }
 
+.valentine-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: auto;
+    padding: 40px;
+    position: relative;
+    min-height: 200px;
+    align-items: center;
+}
+
+.valentine-buttons button {
+    padding: 20px 40px;
+    font-size: 1.3em;
+}
+
+#yes-btn {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border-color: #ff1493;
+}
+
+.no-button {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
 /* Mobile optimization */
 @media (max-width: 480px) {
     .container {
@@ -488,5 +514,17 @@ button:active {
 
     .choice-buttons button {
         width: 100%;
+    }
+
+    .valentine-buttons {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .valentine-buttons button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+        position: static !important;
     }
 }

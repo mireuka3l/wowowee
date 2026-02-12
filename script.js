@@ -168,3 +168,77 @@ showPage = function(pageId) {
     originalShowPage(pageId);
     setTimeout(waveText, 100); // Small delay to ensure page is visible
 };
+
+// Valentine's Day No button movement
+function moveNoButton() {
+    const noBtn = document.getElementById('no-btn');
+    if (!noBtn) return;
+    
+    const container = document.querySelector('.valentine-buttons');
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+    
+    // Calculate max positions (keep button inside container)
+    const maxX = containerRect.width - btnRect.width - 40;
+    const maxY = containerRect.height - btnRect.height - 40;
+    
+    // Generate random position
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+    
+    // Move button
+    noBtn.style.left = randomX + 'px';
+    noBtn.style.top = randomY + 'px';
+}
+
+// Add event listeners for No button when it exists
+document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for page to be ready, then add listeners
+    setTimeout(function() {
+        const noBtn = document.getElementById('no-btn');
+        if (noBtn) {
+            // For desktop - hover
+            noBtn.addEventListener('mouseenter', moveNoButton);
+            
+            // For mobile - touch/click
+            noBtn.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                moveNoButton();
+            });
+            
+            noBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                moveNoButton();
+            });
+        }
+    }, 500);
+});
+
+// Re-add listeners when switching to valentine page
+const originalShowPage2 = showPage;
+showPage = function(pageId) {
+    originalShowPage2(pageId);
+    setTimeout(waveText, 100);
+    
+    // Add listeners if we're on the valentine page
+    if (pageId === 'valentine-question') {
+        setTimeout(function() {
+            const noBtn = document.getElementById('no-btn');
+            if (noBtn) {
+                // For desktop - hover
+                noBtn.addEventListener('mouseenter', moveNoButton);
+                
+                // For mobile - touch/click
+                noBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    moveNoButton();
+                });
+                
+                noBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    moveNoButton();
+                });
+            }
+        }, 100);
+    }
+};
