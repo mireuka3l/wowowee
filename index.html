@@ -347,7 +347,7 @@
             </div>
         </div>
 
-        <!-- Final Message Page (NEW) -->
+        <!-- Final Message Page -->
         <div id="final-message" class="page">
             <div class="content-wrapper">
                 <h2>One More Thing...</h2>
@@ -378,7 +378,7 @@
                 <h2>Will you be my valentine?</h2>
             </div>
             <div class="valentine-buttons">
-                <button id="yes-btn" onclick="showPage('valentine-yes')">Yes</button>
+                <button id="yes-btn" onclick="showValentineYes()">Yes</button>
                 <button id="no-btn" class="no-button">No</button>
             </div>
         </div>
@@ -405,22 +405,17 @@
         </div>
     </div>
 
-    <canvas id="confetti-canvas"></canvas>
+    <!-- Canvas confetti is commented out - using GIF instead -->
+    <!-- <canvas id="confetti-canvas"></canvas> -->
     
-    <!-- Confetti GIF overlay (optional - use this OR canvas, not both) -->
-    <!-- If you want to use a GIF instead, uncomment the div below and comment out the canvas above -->
-    <!-- Also comment out the startConfetti() call in script.js -->
-    
+    <!-- Confetti GIF overlay -->
     <div id="confetti-gif" style="display: none;">
         <img src="confetti3.gif" alt="confetti">
     </div>
 
-    
-    <!-- Add your music file here -->
-    <!-- Replace "your-music-file.mp3" with your actual music file name -->
+    <!-- Music file -->
     <audio id="valentine-music" preload="auto">
         <source src="love-song.mp3" type="audio/mpeg">
-        <source src="your-music-file.ogg" type="audio/ogg">
     </audio>
 
     <script src="script.js"></script>
