@@ -245,7 +245,28 @@ showPage = function(pageId) {
 
 // Confetti animation
 function showValentineYes() {
-    startConfetti();
+    // Play music
+    const music = document.getElementById('valentine-music');
+    if (music) {
+        music.volume = 0.5; // Set volume to 50% (adjust as needed)
+        music.play().catch(function(error) {
+            console.log("Music playback failed:", error);
+        });
+    }
+    
+    // Check if using GIF or canvas confetti
+    const confettiGif = document.getElementById('confetti-gif');
+    if (confettiGif) {
+        // Use GIF confetti
+        confettiGif.style.display = 'block';
+        setTimeout(function() {
+            confettiGif.style.display = 'none';
+        }, 5000);
+    } else {
+        // Use canvas confetti
+        startConfetti();
+    }
+    
     setTimeout(function() {
         showPage('valentine-yes');
     }, 500);

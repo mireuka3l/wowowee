@@ -406,6 +406,22 @@
     </div>
 
     <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Confetti GIF overlay (optional - use this OR canvas, not both) -->
+    <!-- If you want to use a GIF instead, uncomment the div below and comment out the canvas above -->
+    <!-- Also comment out the startConfetti() call in script.js -->
+    
+    <div id="confetti-gif" style="display: none;">
+        <img src="confetti1.gif" alt="confetti">
+    </div>
+
+    
+    <!-- Add your music file here -->
+    <!-- Replace "your-music-file.mp3" with your actual music file name -->
+    <audio id="valentine-music" preload="auto">
+        <source src="love-song.mp3" type="audio/mpeg">
+        <source src="your-music-file.ogg" type="audio/ogg">
+    </audio>
 
     <script src="script.js"></script>
 </body>
