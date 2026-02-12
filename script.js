@@ -174,9 +174,6 @@ function moveNoButton() {
     const noBtn = document.getElementById('no-btn');
     if (!noBtn) return;
     
-    // Add moved class to switch to absolute positioning
-    noBtn.classList.add('moved');
-    
     const container = document.querySelector('.valentine-buttons');
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
