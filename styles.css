@@ -394,8 +394,9 @@ button:active {
 }
 
 .message-text {
+    font-family: 'Indie Flower', cursive;
     color: #734c3f;
-    font-size: 1.2em;
+    font-size: 1.4em;
     line-height: 1.8;
     margin: 20px 0;
     margin-left: 40px;
@@ -418,8 +419,9 @@ button:active {
 }
 
 .middle-text {
+    font-family: 'Indie Flower', cursive;
     color: #734c3f;
-    font-size: 1.15em;
+    font-size: 1.4em;
     line-height: 2;
     margin: 30px 0;
     font-style: italic;
@@ -467,8 +469,12 @@ button:active {
     }
 
     .message-text {
-        font-size: 1.05em;
+        font-size: 1.2em;
         padding: 15px;
+    }
+
+    .middle-text {
+        font-size: 1.2em;
     }
 
     .reason-buttons {
