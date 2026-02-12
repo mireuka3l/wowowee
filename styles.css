@@ -458,11 +458,16 @@ button:active {
 #yes-btn {
     background: linear-gradient(135deg, #ff69b4, #ff1493);
     border-color: #ff1493;
+    position: relative;
 }
 
 .no-button {
-    position: absolute;
+    position: relative;
     transition: all 0.3s ease;
+}
+
+.no-button.moved {
+    position: absolute;
 }
 
 /* Mobile optimization */
